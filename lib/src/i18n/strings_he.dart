@@ -20,6 +20,11 @@ class _StringsHe extends _StringsI18n {
   List<String> getMonths() {
     return ['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'];
   }
+  
+  @override
+  List<String> getMonthsShort() {
+    return ['ינו','פבר','מרץ','אפר','מאי','יונ','יול','אוג','ספט','אוק','נוב','דצמ'];
+  }
 
   @override
   List<String> getWeeksFull() {
