@@ -161,64 +161,53 @@ class DatePickerI18n {
   /// Get done button text
   static String getLocaleDone(DateTimePickerLocale locale) {
     _StringsI18n i18n = datePickerI18n[locale] ??
-        datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT];
-    return i18n.getDoneText() ??
-        datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT].getDoneText();
+        datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT]!;
+    return i18n.getDoneText();
   }
 
   /// Get cancel button text
   static String getLocaleCancel(DateTimePickerLocale locale) {
     _StringsI18n i18n = datePickerI18n[locale] ??
-        datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT];
-    return i18n.getCancelText() ??
-        datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT].getCancelText();
+        datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT]!;
+    return i18n.getCancelText();
   }
 
   /// Get locale month array
-  static List<String> getLocaleMonths(DateTimePickerLocale locale,
+  static List<String>? getLocaleMonths(DateTimePickerLocale locale,
       [bool isFull = true]) {
     _StringsI18n i18n = datePickerI18n[locale] ??
-        datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT];
+        datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT]!;
 
     if (isFull) {
       List<String> months = i18n.getMonths();
-      if (months != null && months.isNotEmpty) {
-        return months;
-      }
-      return datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT].getMonths();
+      return months;
     }
 
-    List<String> months = i18n.getMonthsShort();
+    List<String>? months = i18n.getMonthsShort();
     if (months != null && months.isNotEmpty && months.length == 12) {
       return months;
     }
-    return datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT].getMonthsShort();
+    return i18n.getMonthsShort();
   }
 
   /// Get locale week array
-  static List<String> getLocaleWeeks(DateTimePickerLocale locale,
+  static List<String>? getLocaleWeeks(DateTimePickerLocale locale,
       [bool isFull = true]) {
     _StringsI18n i18n = datePickerI18n[locale] ??
-        datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT];
+        datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT]!;
     if (isFull) {
       List<String> weeks = i18n.getWeeksFull();
-      if (weeks != null && weeks.isNotEmpty) {
-        return weeks;
-      }
-      return datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT].getWeeksFull();
+      return weeks;
     }
 
-    List<String> weeks = i18n.getWeeksShort();
+    List<String>? weeks = i18n.getWeeksShort();
     if (weeks != null && weeks.isNotEmpty) {
       return weeks;
     }
 
     List<String> fullWeeks = i18n.getWeeksFull();
-    if (fullWeeks != null && fullWeeks.isNotEmpty) {
-      return fullWeeks
-          .map((item) => item.substring(0, min(3, item.length)))
-          .toList();
-    }
-    return datePickerI18n[DATETIME_PICKER_LOCALE_DEFAULT].getWeeksShort();
+    return fullWeeks
+        .map((item) => item.substring(0, min(3, item.length)))
+        .toList();
   }
 }
