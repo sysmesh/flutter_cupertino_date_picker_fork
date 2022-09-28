@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../date_picker_constants.dart';
 import '../date_picker_theme.dart';
 import '../i18n/date_picker_i18n.dart';
@@ -64,7 +63,7 @@ class DatePickerTitleWidget extends StatelessWidget {
     return Container(
       height: pickerTheme.titleHeight,
       child: TextButton(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+        //shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
         child: cancelWidget,
         onPressed: () => this.onCancel(),
       ),
@@ -95,8 +94,8 @@ class DatePickerTitleWidget extends StatelessWidget {
 
     return Container(
       height: pickerTheme.titleHeight,
-      child: FlatButton(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+      child: TextButton(
+        //shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
         child: confirmWidget,
         onPressed: () => this.onConfirm(),
       ),
